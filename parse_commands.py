@@ -54,10 +54,17 @@ class Listener:
             input = p._await_input()        
             try:
                 if str.upper(input) == "HEY BOB":
-                    print("Heard trigger word")
+                    print("Listening...")
+                    self._listen_for_command()
                     break
             except TypeError:
                 pass
+
+    def _listen_for_command():
+        p = ParseCommands()
+        while True:
+            command = p._await_input()        
+        p._speak_text(command)
 
 
 if __name__ == "__main__":
